@@ -7,7 +7,7 @@ module.exports = defineConfig({
     baseUrl: "https://example.cypress.io",
     // defaultCommandTimeout: 10000,
     // video: false,
-    // screenshotOnRunFailure: true,
+    screenshotOnRunFailure: false,
     // retries: {
     //   runMode: 2,
     //   openMode: 2,
