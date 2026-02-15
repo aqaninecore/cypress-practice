@@ -6,7 +6,7 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://example.cypress.io",
     // defaultCommandTimeout: 10000,
-    // video: false,
+    video: false,
     screenshotOnRunFailure: false,
     // retries: {
     //   runMode: 2,
