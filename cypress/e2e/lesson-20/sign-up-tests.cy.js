@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+const { Children } = require('react')
+
 // FIELD 'Name'
 // 1. check empty field -> Name is required
 // 2. check special chars data -> Name is invalid
@@ -59,4 +61,17 @@ before(() => {
   cy.visit('/')
   cy.get('header')
   cy.get('.btn.btn-outline-white.header_signin').click()
+})
+
+describe('Sign Up Form. Name field validation', () => {
+  beforeEach(() => {
+    cy.get('.modal-footer').children().eq(0).click()
+  })
+
+  context('Name field', () => {
+    it.only('Check valid input with 2 symbols', () => {
+      cy.get('#signupName').click()
+      cy.get('#signupName').type('Go', { delay: 300 })
+    })
+  })
 })
