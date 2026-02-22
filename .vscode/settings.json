@@ -1,14 +1,16 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "html.format.wrapAttributesIndentSize": null,
-  "json.format.enable": true,
-  "prettier.arrowParens": "always",
-  "prettier.jsxSingleQuote": true,
-  "prettier.objectWrap": "collapse",
-  "prettier.printWidth": 120,
-  "prettier.requireConfig": false,
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "notebook.defaultFormatter": "esbenp.prettier-vscode"
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "editor.formatOnSave": true,
+   "html.format.wrapAttributesIndentSize": null,
+   "json.format.enable": true,
+   "prettier.arrowParens": "always",
+   "prettier.jsxSingleQuote": true,
+   "prettier.objectWrap": "collapse",
+   "prettier.printWidth": 120,
+   "prettier.requireConfig": false,
+   "prettier.semi": false,
+   "prettier.singleQuote": true,
+   "notebook.defaultFormatter": "esbenp.prettier-vscode",
+   "prettier.useTabs": false,
+   "prettier.tabWidth": 2
 }
