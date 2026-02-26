@@ -1,3 +1,6 @@
 node_modules
 videos
 screenshots
+cypres.env.json
+reports
+mochawesome-report

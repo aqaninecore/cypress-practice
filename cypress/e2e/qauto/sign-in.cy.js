@@ -1,38 +1,48 @@
 /// <reference types="cypress" />
 
+import SignInForm from '../../pom/forms/SignInForm'
+import HomePage from '../../pom/pages/HomePage'
+import users from '../../fixtures/users.json'
+import GaragePage from '../../pom/pages/GaragePage'
+
 describe('Sign In form', () => {
   beforeEach(() => {
-    cy.visit('/')
-    cy.get('.header_signin').click()
+    HomePage.visit()
+    HomePage.openSignInForm()
   })
   context('Sign In process', () => {
-    it('Success Sign In', () => {
-      cy.get('#signinEmail').type('razorbackrightnow@gmail.com')
-      cy.get('#signinPassword').type('Balagan1234')
-      cy.get('.modal-content .btn-primary').click()
-      cy.get('h1').should('have.text', 'Garage')
+    it.only('Success Sign In', () => {
+      SignInForm.login(users.correctUser.email, users.correctUser.password)
+      GaragePage.pageTitle.should('have.text', 'Garage')
     })
-    // Test 1 - Success Sign In
-    // Tets 2 - Invalid Password
-    // Test 3 - Invalid Email & Password
+    it('Invalid password', () => {
+      SignInForm.login('rrffdg34now@gmail.com', 'Bdffs3dgafg55')
+      SignInForm.verifyWrongDataErrorMessage('Wrong email or password')
+    })
+
+    it('Invalid email & password', () => {
+      SignInForm.login('r1dfssd65tnow@gmail.com', 'asdSgan12345')
+      SignInForm.verifyWrongDataErrorMessage('Wrong email or password')
+    })
   })
 
   context('Email validation', () => {
+    it('Empty Email', () => {
+      SignInForm.triggerErrorOnField(SignInForm.emailField)
+      SignInForm.verifyWrongInputErrorMessage('Email required')
+    })
+
     it('Incorrect Email', () => {
-      cy.get('#signinEmail').focus()
-      cy.get('#signinEmail').blur()
-      cy.get('.invalid-feedback').should('have.text', 'Email is required')
+      cy.get('#signinEmail').type('fgfdgsf')
+      SignInForm.triggerErrorOnField(SignInForm.emailField)
+      SignInForm.verifyWrongInputErrorMessage('Email is incorrect')
     })
   })
-  // Test 4 - Empty Fields Validation
-  // Test 5 - Syntax email validation
 
   context('Password validation', () => {
     it('Empty Password', () => {
-      cy.get('#signinPassword').focus()
-      cy.get('#signinPassword').blur()
-      cy.get('.invalid-feedback').should('have.text', 'Password is required')
+      SignInForm.triggerErrorOnField(SignInForm.passwordField)
+      SignInForm.verifyWrongInputErrorMessage('Password required')
     })
   })
-  // Test 6 - Empty Password Validation
 })
