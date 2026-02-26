@@ -4,7 +4,7 @@ module.exports = defineConfig({
   //allowCypressEnv: false,
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
-    baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
+    baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space',
     video: false,
     screenshotOnRunFailure: false,
     // retries: {
