@@ -8,6 +8,8 @@ import GaragePage from '../../pom/pages/GaragePage'
 describe('Sign In form', () => {
   beforeEach(() => {
     HomePage.visit()
+    cy.pause()
+    cy.get('h1').debug()
     HomePage.openSignInForm()
   })
   context('Sign In process', () => {
