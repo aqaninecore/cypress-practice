@@ -40,7 +40,7 @@ describe('Cars management', () => {
       deleteAllCars()
     })
 
-    const carsCount = 26
+    const carsCount = 27
 
     Array.from({ length: carsCount }).forEach((_, index) => {
       it(`Add car #${index + 1}`, () => {
