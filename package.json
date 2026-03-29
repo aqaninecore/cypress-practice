@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:open:stage": "npx cypress open --config-file ./cypress1.config.js",
+    "cy:open:stage": "npx cypress open --config-file ./cypress.config.js",
+    "cy:open:stage1": "npx cypress open --config-file ./cypress1.config.js",
     "test:reporter": "cypress run --reporter mochawesome"
   },
   "dependencies": {

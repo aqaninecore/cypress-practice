@@ -14,7 +14,7 @@ describe('Sign In form', () => {
   })
   context('Sign In process', () => {
     it.only('Success Sign In', () => {
-      SignInForm.login(users.correctUser.email, users.correctUser.password)
+      SignInForm.login(users.correctUser1.email, users.correctUser1.password)
       GaragePage.pageTitle.should('have.text', 'Garage')
     })
     it('Invalid password', () => {

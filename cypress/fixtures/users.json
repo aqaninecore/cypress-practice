@@ -1,1 +1,4 @@
-{ "correctUser": { "email": "razorbackrightnow@gmail.com", "password": "Balagan1234" } }
+{
+  "correctUser": { "email": "razorbackrightnow@gmail.com", "password": "Balagan1234" },
+  "correctUser1": { "email": "randomEmail+112@example.com", "password": "Babka123!" }
+}
