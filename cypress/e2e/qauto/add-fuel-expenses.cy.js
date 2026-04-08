@@ -12,7 +12,7 @@ import RemoveEntryForm from '../../pom/forms/RemoveEntryForm'
 beforeEach(() => {
   HomePage.visit()
   HomePage.openSignInForm()
-  SignInForm.login(users.correctUser1.email, users.correctUser1.password)
+  SignInForm.login(users.correctUser.email, users.correctUser.password)
   FuelExpensesPage.goToFuelExpensesSection()
   FuelExpensesPage.pageTitle.should('have.text', 'Fuel expenses')
   GaragePage.logInAlert.should('be.visible')

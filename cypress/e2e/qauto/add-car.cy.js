@@ -14,7 +14,7 @@ import FuelExpensesPage from '../../pom/pages/FuelExpensesPage'
 beforeEach(() => {
   HomePage.visit()
   HomePage.openSignInForm()
-  SignInForm.login(users.correctUser1.email, users.correctUser1.password)
+  SignInForm.login(users.correctUser.email, users.correctUser.password)
   GaragePage.pageTitle.should('have.text', 'Garage')
   GaragePage.logInAlert.should('be.visible')
 })

@@ -12,7 +12,7 @@ import RemoveCarForm from '../../pom/forms/RemoveCarForm'
 beforeEach(() => {
   HomePage.visit()
   HomePage.openSignInForm()
-  SignInForm.login(users.correctUser1.email, users.correctUser1.password)
+  SignInForm.login(users.correctUser.email, users.correctUser.password)
   GaragePage.pageTitle.should('have.text', 'Garage')
   GaragePage.logInAlert.should('be.visible')
 })
