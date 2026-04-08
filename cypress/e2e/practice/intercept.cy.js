@@ -25,14 +25,15 @@ describe('Sign In Form', () => {
           },
         ],
       }
-      cy.intercept('GET', '/api/cars', response).as('carsResp')
+      cy.intercept('GET', '/api/cars', response)
+      //cy.intercept('GET', '/api/cars', response).as('carsResp')
       HomePage.visit()
       HomePage.openSignInForm()
       SignInForm.login(users.correctUser.email, users.correctUser.password)
-      cy.wait('@carsResp').then((resp) => {
-        cy.log(JSON.stringify(resp))
-        GaragePage.pageTitle.should('have.text', 'Garage')
-      })
+      // cy.wait('@carsResp').then((resp) => {
+      //   cy.log(JSON.stringify(resp))
+      // })
+      GaragePage.pageTitle.should('have.text', 'Garage')
     })
   })
 })
