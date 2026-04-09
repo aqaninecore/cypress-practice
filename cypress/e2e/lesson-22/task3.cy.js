@@ -8,7 +8,7 @@ import ProfilePage from '../../pom/pages/ProfilePage'
 
 describe('Sign In Form', () => {
   context('Sign In process', () => {
-    it.only('Success sign in', () => {
+    it('Success sign in', () => {
       const response = {
         status: 'ok',
         data: { lastName: 'Bear', name: 'Polar', photoFilename: 'default-user.png', userId: 328349 },
