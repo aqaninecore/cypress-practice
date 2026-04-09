@@ -17,17 +17,23 @@ describe('Private API Requests', () => {
     cy.api({ url: '/api/cars', method: 'GET', headers: { Cookie: sid } }).then((carsResponse) => {
       expect(carsResponse.status).to.eq(200)
 
-      cy.wrap(carsResponse.body.data).each((car) => {
-        cy.api({ url: `/api/cars/${car.id}`, method: 'DELETE', headers: { Cookie: sid } }).then((deleteResponse) => {
-          expect(deleteResponse.status).to.eq(200)
+      const deletedCarIds = carsResponse.body.data.map((car) => car.id)
 
-          cy.api({ url: '/api/cars', method: 'GET', headers: { Cookie: sid } }).then((carsAfterDeleteResponse) => {
-            expect(carsAfterDeleteResponse.status).to.eq(200)
-            const deletedCar = carsAfterDeleteResponse.body.data.find((c) => c.id === car.id)
-            expect(deletedCar).to.be.undefined
+      cy.wrap(carsResponse.body.data)
+        .each((car) => {
+          cy.api({ url: `/api/cars/${car.id}`, method: 'DELETE', headers: { Cookie: sid } }).then((deleteResponse) => {
+            expect(deleteResponse.status).to.eq(200)
           })
         })
-      })
+        .then(() => {
+          cy.api({ url: '/api/cars', method: 'GET', headers: { Cookie: sid } }).then((carsAfterDeleteResponse) => {
+            expect(carsAfterDeleteResponse.status).to.eq(200)
+            deletedCarIds.forEach((deletedCarId) => {
+              const deletedCar = carsAfterDeleteResponse.body.data.find((c) => c.id === deletedCarId)
+              expect(deletedCar).to.be.undefined
+            })
+          })
+        })
     })
   })
 
