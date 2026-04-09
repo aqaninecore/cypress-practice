@@ -40,7 +40,7 @@ describe('Private API Requests', () => {
     })
   })
 
-  it.only('Add a car', () => {
+  it('Add a car', () => {
     cy.api({
       url: '/api/cars',
       method: 'POST',
@@ -56,7 +56,7 @@ describe('Private API Requests', () => {
     })
   })
 
-  it.only('Add one more car', () => {
+  it('Add one more car', () => {
     cy.api({
       url: '/api/cars',
       method: 'POST',
