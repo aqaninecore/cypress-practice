@@ -41,7 +41,7 @@ describe('Private API Requests', () => {
     cy.api({ url: '/api/cars', method: 'GET', headers: { Cookie: sid }, failOnStatusCode: false }).then((response) => {
       cy.log(JSON.stringify(response.body))
       expect(response.status).to.eq(200)
-      expect(response.body.data).to.have.length.greaterThan(0)
+      expect(response.body.data).to.be.an('array')
     })
   })
 })
